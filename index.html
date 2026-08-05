@@ -4,233 +4,363 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Engineering Portfolio</title>
+    <title>Engineering Portfolio | Compact Project Dashboard</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .filter-btn.active {
-            background-color: #2563eb;
-            color: #ffffff;
-            border-color: #2563eb;
+        .category-tab.active {
+            background-color: #1e293b;
+            color: #60a5fa;
+            border-left-color: #3b82f6;
         }
-        .project-card {
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -10px rgba(37, 99, 235, 0.3);
+        .project-row:hover {
+            background-color: rgba(30, 41, 59, 0.7);
         }
         .modal-active {
             display: flex !important;
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
 
-    <!-- Header -->
+    <!-- Top Navigation Header -->
     <header class="sticky top-0 z-30 bg-slate-900/90 backdrop-blur border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-wider text-blue-400">ENGINEERING PORTFOLIO</a>
-            <span class="text-xs bg-slate-800 text-slate-400 border border-slate-700 px-3 py-1 rounded-full"><i class="fa-solid fa-lock mr-1 text-amber-400"></i> Direct Application Link</span>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-wider text-blue-400">ENGINEERING PORTFOLIO</span>
+                <span class="text-xs bg-slate-800 text-slate-400 border border-slate-700 px-2.5 py-0.5 rounded-full hidden sm:inline-block">Propulsion, Fluids & Mechanical</span>
+            </div>
+            <span class="text-xs bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full"><i class="fa-solid fa-lock mr-1"></i> Private Application Link</span>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow w-full">
-        <div class="mb-8">
-            <h1 class="text-3xl font-extrabold text-white">Technical & Design Projects</h1>
-            <p class="text-slate-400 mt-1">Select a category below to filter engineering projects or click any card for detailed views and images.</p>
+    <!-- Main Dashboard Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+        <div class="mb-6">
+            <h1 class="text-2xl sm:text-3xl font-bold text-white">Technical Projects Dashboard</h1>
+            <p class="text-slate-400 text-sm mt-1">Select a category on the left to review specific sub-projects, models, and technical documentation without scrolling.</p>
         </div>
 
-        <!-- Filters -->
-        <div class="flex flex-wrap gap-2 mb-10" id="filter-buttons">
-            <button onclick="filterProjects('all', this)" class="filter-btn active border border-slate-700 px-4 py-2 rounded-full text-sm font-medium transition text-slate-300 hover:bg-slate-800">All Projects</button>
-            <button onclick="filterProjects('cam', this)" class="filter-btn border border-slate-700 px-4 py-2 rounded-full text-sm font-medium transition text-slate-300 hover:bg-slate-800">CAM / Manufacturing</button>
-            <button onclick="filterProjects('simulation', this)" class="filter-btn border border-slate-700 px-4 py-2 rounded-full text-sm font-medium transition text-slate-300 hover:bg-slate-800">FEA, CFD & Thermal</button>
-            <button onclick="filterProjects('coding', this)" class="filter-btn border border-slate-700 px-4 py-2 rounded-full text-sm font-medium transition text-slate-300 hover:bg-slate-800">Coding Projects</button>
-            <button onclick="filterProjects('handson', this)" class="filter-btn border border-slate-700 px-4 py-2 rounded-full text-sm font-medium transition text-slate-300 hover:bg-slate-800">Hands-on Work</button>
-            <button onclick="filterProjects('classwork', this)" class="filter-btn border border-slate-700 px-4 py-2 rounded-full text-sm font-medium transition text-slate-300 hover:bg-slate-800">Class & Labwork</button>
-        </div>
+        <!-- 2-Column Dashboard Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
-        <!-- Project Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
-            <!-- Dynamic project cards populate here -->
-        </div>
-    </main>
+            <!-- Sidebar Navigation Tabs -->
+            <nav class="lg:col-span-3 bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-lg space-y-1 p-2" id="category-tabs">
+                <button onclick="switchCategory('cam', this)" class="category-tab active w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-gears w-5 text-slate-500 mr-2"></i>CAM & Mfg</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-cam">0</span>
+                </button>
+                <button onclick="switchCategory('fea', this)" class="category-tab w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-chart-line w-5 text-slate-500 mr-2"></i>FEA</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-fea">0</span>
+                </button>
+                <button onclick="switchCategory('thermo', this)" class="category-tab w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-fire w-5 text-slate-500 mr-2"></i>Thermo-Structural</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-thermo">0</span>
+                </button>
+                <button onclick="switchCategory('cfd', this)" class="category-tab w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-wind w-5 text-slate-500 mr-2"></i>CFD</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-cfd">0</span>
+                </button>
+                <button onclick="switchCategory('coding', this)" class="category-tab w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-code w-5 text-slate-500 mr-2"></i>Coding Projects</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-coding">0</span>
+                </button>
+                <button onclick="switchCategory('pids', this)" class="category-tab w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-diagram-project w-5 text-slate-500 mr-2"></i>P&IDs & Schematics</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-pids">0</span>
+                </button>
+                <button onclick="switchCategory('labwork', this)" class="category-tab w-full text-left px-4 py-3 text-sm font-medium border-l-4 border-transparent text-slate-400 hover:text-slate-200 transition rounded-r-lg flex items-center justify-between">
+                    <span><i class="fa-solid fa-flask w-5 text-slate-500 mr-2"></i>Class/Lab/Clubwork</span>
+                    <span class="badge bg-slate-800 text-xs px-2 py-0.5 rounded-full text-slate-400" id="count-labwork">0</span>
+                </button>
+            </nav>
 
-    <!-- Detail & Image Modal -->
-    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm p-4 sm:p-6 md:p-10 items-center justify-center overflow-y-auto">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl max-w-4xl w-full p-6 sm:p-8 relative shadow-2xl my-auto">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-700 transition">&times;</button>
-            
-            <span id="modal-category" class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-2 inline-block">Category</span>
-            <h3 id="modal-title" class="text-2xl sm:text-3xl font-bold text-white mb-4">Project Title</h3>
-            
-            <!-- High-Res Image Display -->
-            <div class="bg-slate-900 rounded-xl border border-slate-700/80 overflow-hidden mb-6 flex items-center justify-center min-h-[280px]">
-                <img id="modal-image" src="" alt="Project Display" class="max-h-[480px] w-auto object-contain">
-            </div>
+            <!-- Compact Project List Display -->
+            <div class="lg:col-span-9 bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-lg min-h-[420px] flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
+                        <h2 id="active-category-title" class="text-xl font-bold text-blue-400">CAM & Manufacturing</h2>
+                        <span id="category-summary" class="text-xs text-slate-400">Click any entry to view full CAD/data renders</span>
+                    </div>
 
-            <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
-                <h4 class="text-base font-semibold text-white border-b border-slate-700 pb-2">Technical Summary</h4>
-                <p id="modal-description">Detailed overview...</p>
+                    <!-- Project Table View -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="text-xs uppercase text-slate-500 border-b border-slate-800">
+                                    <th class="py-2 px-3">Project Title</th>
+                                    <th class="py-2 px-3">Primary Tech / Tool</th>
+                                    <th class="py-2 px-3 hidden sm:table-cell">Key Metric / Result</th>
+                                    <th class="py-2 px-3 text-right">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="project-table-body" class="divide-y divide-slate-800/60 text-sm">
+                                <!-- Dynamic rows populate here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-                <h4 class="text-base font-semibold text-white border-b border-slate-700 pb-2 pt-2">Key Outcomes & Metrics</h4>
-                <ul id="modal-highlights" class="list-disc list-inside space-y-1 text-slate-400">
-                    <!-- Highlights -->
-                </ul>
-
-                <h4 class="text-base font-semibold text-white border-b border-slate-700 pb-2 pt-2">Tools & Skills Used</h4>
-                <div id="modal-tags" class="flex flex-wrap gap-2 pt-1">
-                    <!-- Tags -->
+                <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-500">
+                    <span>Showing <span id="category-project-count" class="font-bold text-slate-300">0</span> sub-projects in this domain</span>
+                    <span>Direct Recruiter Review View</span>
                 </div>
             </div>
 
-            <div class="mt-8 pt-4 border-t border-slate-700 flex justify-end">
-                <button onclick="closeModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-5 py-2.5 rounded-lg text-sm font-medium transition">Close Viewer</button>
+        </div>
+    </main>
+
+    <!-- Slide-Over / Modal Detail Drawer -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm p-4 sm:p-6 md:p-10 items-center justify-center overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-4xl w-full p-6 sm:p-8 relative shadow-2xl my-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-800 transition">&times;</button>
+            
+            <span id="modal-category" class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1 inline-block">Category</span>
+            <h3 id="modal-title" class="text-2xl font-bold text-white mb-4">Project Title</h3>
+            
+            <!-- High-Res Graphic / Render View -->
+            <div class="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden mb-6 flex items-center justify-center min-h-[260px] max-h-[400px]">
+                <img id="modal-image" src="" alt="Technical Graphic View" class="max-h-[380px] w-auto object-contain">
+            </div>
+
+            <div class="space-y-4 text-slate-300 text-sm leading-relaxed">
+                <div>
+                    <h4 class="text-xs font-semibold uppercase text-slate-400 mb-1">Technical Summary</h4>
+                    <p id="modal-description" class="text-slate-300">Detailed breakdown...</p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold uppercase text-slate-400 mb-1">Key Engineering Deliverables & Results</h4>
+                    <ul id="modal-highlights" class="list-disc list-inside space-y-1 text-slate-300">
+                        <!-- Highlights -->
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-semibold uppercase text-slate-400 mb-2">Software, Tools & Hardware</h4>
+                    <div id="modal-tags" class="flex flex-wrap gap-2">
+                        <!-- Tags -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
+                <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-5 py-2.5 rounded-lg text-sm font-medium transition">Close Viewer</button>
             </div>
         </div>
     </div>
 
-    <!-- Data Script -->
+    <!-- Data & Interactive Logic -->
     <script>
-        // Update image paths relative to your images/ folder
+        // =========================================================================
+        // EXPAND YOUR SMALL PROJECTS HERE
+        // Categories: 'cam', 'fea', 'thermo', 'cfd', 'coding', 'pids', 'labwork'
+        // =========================================================================
         const projectsData = [
+            // --- CAM / MANUFACTURING ---
             {
                 id: "cam-1",
                 category: "cam",
-                categoryLabel: "CAM / Manufacturing",
-                categoryColor: "text-amber-400",
-                title: "5-Axis Aerospace Impeller Machining",
+                title: "5-Axis Impeller Toolpath Generation",
+                tool: "Mastercam",
+                metric: "22% Cycle Time Reduction",
                 image: "images/impeller-cam.jpg",
-                summary: "Multi-axis toolpath optimization and G-code verification for titanium turbomachinery components.",
-                description: "Programmed 5-axis roughing and blade finishing strategies in Mastercam for Ti-6Al-4V impellers. Developed custom workholding fixtures to minimize vibration during high-speed cuts.",
+                description: "Optimized toolpaths and G-code generation for titanium turbocharger impellers on 5-axis CNC mills.",
                 highlights: [
-                    "Reduced machining cycle duration by 22% using high-feed dynamic toolpaths.",
-                    "Achieved surface finish tolerance below 0.8 µm Ra on aerodynamic surfaces.",
-                    "Validated clearance and verified toolpaths against zero-collision tolerances."
+                    "Programmed dynamic roughing and finishing toolpaths in Mastercam.",
+                    "Maintained surface finish tolerance below 0.8 µm Ra.",
+                    "Ran Vericut simulation checks to ensure zero tool/fixture collisions."
                 ],
                 tags: ["Mastercam", "CNC Machining", "GD&T", "Vericut"]
             },
             {
-                id: "sim-1",
-                category: "simulation",
-                categoryLabel: "FEA, CFD & Thermal",
-                categoryColor: "text-cyan-400",
-                title: "Cold Plate Heat Exchanger CFD",
-                image: "images/coldplate-cfd.png",
-                summary: "Conjugate heat transfer simulation evaluating thermal performance under variable fluid flow rates.",
-                description: "Constructed 3D CFD models in ANSYS Fluent to model conjugated convective-conductive heat transfer across internal fluid microchannels.",
+                id: "cam-2",
+                category: "cam",
+                title: "Soft Jaw Fixture Machining",
+                tool: "Haas CNC Lathe",
+                metric: "< 0.0005 in Concentricity",
+                image: "images/soft-jaws.jpg",
+                description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
                 highlights: [
-                    "Maintained peak thermal uniformities within 3.5°C across heat-generating surfaces.",
-                    "Optimized channel geometry to reduce pressure drop across manifolds.",
-                    "Correlated analytical convection coefficients against physical lab data."
+                    "Bored jaws to match non-standard cylindrical geometry.",
+                    "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
-                tags: ["ANSYS Fluent", "Thermal FEA", "Conjugate Heat Transfer"]
+                tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
+
+            // --- FEA ---
+            {
+                id: "fea-1",
+                category: "fea",
+                title: "Suspension Upright Structural Analysis",
+                tool: "ANSYS Mechanical",
+                metric: "31% Mass Reduction",
+                image: "images/upright-fea.png",
+                description: "Executed static and fatigue FEA on a 7075-T6 aluminum upright subjected to peak 3.5G cornering loads.",
+                highlights: [
+                    "Iterated mesh refinement until stress convergence was achieved.",
+                    "Maintained minimum Factor of Safety (FOS) of 1.6 under maximum braking/cornering combined loads."
+                ],
+                tags: ["ANSYS Mechanical", "FEA", "Fatigue Analysis"]
+            },
+
+            // --- THERMO-STRUCTURAL ---
+            {
+                id: "thermo-1",
+                category: "thermo",
+                title: "Thrust Chamber Thermal-Stress Coupling",
+                tool: "ANSYS Multi-physics",
+                metric: "Thermal Margin Verified",
+                image: "images/thrust-thermal.png",
+                description: "Coupled thermal-structural finite element model evaluating expansion stress across regeneratively cooled nozzle walls.",
+                highlights: [
+                    "Mapped non-uniform heat flux profiles onto structural shell elements.",
+                    "Calculated creep and thermal deformation limits under steady-state firing loads."
+                ],
+                tags: ["ANSYS Thermal", "Thermal Stress", "Coupled Analysis"]
+            },
+
+            // --- CFD ---
+            {
+                id: "cfd-1",
+                category: "cfd",
+                title: "Cold Plate Microchannel Flow Conjugate CFD",
+                tool: "ANSYS Fluent",
+                metric: "< 3.5°C Cell Variance",
+                image: "images/coldplate-cfd.png",
+                description: "Conjugate heat transfer simulation evaluating thermal performance under variable coolant flow rates.",
+                highlights: [
+                    "Evaluated pressure drops across 12 parallel cooling channels.",
+                    "Optimized fluid distribution manifolds to mitigate hot spots."
+                ],
+                tags: ["ANSYS Fluent", "CFD", "Heat Transfer"]
+            },
+
+            // --- CODING ---
             {
                 id: "code-1",
                 category: "coding",
-                categoryLabel: "Coding Projects",
-                categoryColor: "text-emerald-400",
-                title: "Robotic Kinematics & Trajectory Solver",
-                image: "images/robot-code.png",
-                summary: "Real-time forward and inverse kinematics trajectory calculations in C++ with GUI visualization.",
-                description: "Developed an analytical solver library utilizing D-H parameter matrices for multi-DOF mechanical manipulators, integrated into ROS 2 for path execution.",
+                title: "DAQ Data Parsing & Plotting Suite",
+                tool: "Python",
+                metric: "4 Hours Saved / Test Run",
+                image: "images/python-daq.png",
+                description: "Automated ingestion script to clean, filter, and output standardized telemetry reports from raw CSV logs.",
                 highlights: [
-                    "Sub-millisecond solver execution rate for continuous trajectory updates.",
-                    "Integrated collision detection and singularity avoidance bounds.",
-                    "Built real-time telemetry dashboard using Python."
+                    "Applied Savitzky-Golay filtering for automated sensor noise reduction.",
+                    "Generated automated PDF plots for pressure transducers and thermocouples."
                 ],
-                tags: ["C++", "ROS 2", "Python", "Kinematics"]
+                tags: ["Python", "Pandas", "Matplotlib", "Automation"]
             },
+
+            // --- P&IDs & SCHEMATICS ---
             {
-                id: "hands-1",
-                category: "handson",
-                categoryLabel: "Hands-on Work",
-                categoryColor: "text-purple-400",
-                title: "Carbon Fiber Composite A-Arm Fabrication",
-                image: "images/composite-suspension.jpg",
-                summary: "Hands-on composite layup, vacuum bagging, and precision insert assembly for vehicle suspension.",
-                description: "Fabricated structural carbon fiber tubes with bonded 6061 aluminum end fittings. Designed custom alignment jigs to maintain tight assembly tolerances.",
+                id: "pid-1",
+                category: "pids",
+                title: "High-Pressure Fluid Test Stand P&ID",
+                tool: "Visio / AutoCAD",
+                metric: "Full Relief Valves & Interlocks",
+                image: "images/test-stand-pid.png",
+                description: "System schematic layout for gas press-fed liquid propellants test cell plumbing.",
                 highlights: [
-                    "Reduced unsprung structural mass by 18% relative to tubular steel.",
-                    "Executed destructive lap-shear pull tests to validate epoxy bonding integrity.",
-                    "Completed full alignment verification on final vehicle assembly."
+                    "Mapped manual/solenoid valves, pressure transducers, relief burst discs, and purge lines.",
+                    "Annotated line sizing, pressure ratings, and fail-safe state designations."
                 ],
-                tags: ["Composites", "Vacuum Bagging", "Manual Lathe", "Fixturing"]
+                tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
             },
+
+            // --- CLASS / LAB / CLUBWORK ---
             {
-                id: "class-1",
-                category: "classwork",
-                categoryLabel: "Class / Labwork",
-                categoryColor: "text-rose-400",
-                title: "Materials Fatigue Characterization Lab",
+                id: "lab-1",
+                category: "labwork",
+                title: "7075-T6 Fatigue & Tensile Testing Lab",
+                tool: "Instron UTM",
+                metric: "Full S-N Curve Plotted",
                 image: "images/fatigue-test.png",
-                summary: "Tensile testing and fracture surface analysis evaluating mechanical alloy failure mechanisms.",
-                description: "Conducted high-cycle fatigue tests on aluminum alloy specimens. Utilized Scanning Electron Microscopy (SEM) to inspect fracture topographies and beach mark progression.",
+                description: "Mechanical destructive testing lab analyzing fatigue limits and SEM fracture surface topographies.",
                 highlights: [
-                    "Generated empirical S-N fatigue curves matching theoretical fatigue limits.",
-                    "Identified fatigue crack initiation sites and micro-void coalescence.",
-                    "Authored comprehensive technical laboratory documentation."
+                    "Plotted empirical stress vs cycle curves under cyclic fatigue loading.",
+                    "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
                 ],
-                tags: ["Instron UTM", "SEM Analysis", "ASTM Standards", "MATLAB"]
+                tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
             }
         ];
 
-        function renderProjects(filter = 'all') {
-            const grid = document.getElementById('project-grid');
-            grid.innerHTML = '';
+        let currentCategory = 'cam';
 
-            const filtered = filter === 'all' ? projectsData : projectsData.filter(p => p.category === filter);
-
-            filtered.forEach(project => {
-                const card = document.createElement('div');
-                card.className = "project-card bg-slate-800/60 border border-slate-700/60 rounded-xl overflow-hidden flex flex-col cursor-pointer";
-                card.onclick = () => openModal(project.id);
-
-                card.innerHTML = `
-                    <div class="h-48 bg-slate-950 overflow-hidden relative border-b border-slate-700/50">
-                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition duration-300" onerror="this.src='https://via.placeholder.com/600x400/0f172a/64748b?text=Image+Placeholder'">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-semibold uppercase tracking-wider ${project.categoryColor} mb-1 block">${project.categoryLabel}</span>
-                            <h3 class="text-lg font-bold text-white mb-2">${project.title}</h3>
-                            <p class="text-slate-400 text-sm mb-4 leading-relaxed">${project.summary}</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-700/50">
-                            ${project.tags.map(t => `<span class="bg-slate-900 text-slate-300 text-xs px-2.5 py-1 rounded border border-slate-700/50">${t}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
+        function updateCategoryCounts() {
+            const categories = ['cam', 'fea', 'thermo', 'cfd', 'coding', 'pids', 'labwork'];
+            categories.forEach(cat => {
+                const count = projectsData.filter(p => p.category === cat).length;
+                const elem = document.getElementById(`count-${cat}`);
+                if (elem) elem.innerText = count;
             });
         }
 
-        function filterProjects(cat, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderProjects(cat);
+        function renderCategoryView(categoryKey) {
+            currentCategory = categoryKey;
+            const tbody = document.getElementById('project-table-body');
+            tbody.innerHTML = '';
+
+            const categoryNames = {
+                cam: "CAM / Manufacturing",
+                fea: "FEA (Finite Element Analysis)",
+                thermo: "Thermo-Structural Analysis",
+                cfd: "CFD (Computational Fluid Dynamics)",
+                coding: "Coding & Data Automation",
+                pids: "P&IDs & System Schematics",
+                labwork: "Class, Lab & Club Projects"
+            };
+
+            document.getElementById('active-category-title').innerText = categoryNames[categoryKey] || "Projects";
+
+            const filtered = projectsData.filter(p => p.category === categoryKey);
+            document.getElementById('category-project-count').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-slate-500 italic">No sub-projects logged in this category yet.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.className = "project-row cursor-pointer transition border-b border-slate-800/60";
+                tr.onclick = () => openModal(p.id);
+
+                tr.innerHTML = `
+                    <td class="py-3 px-3 font-medium text-white">${p.title}</td>
+                    <td class="py-3 px-3 text-slate-400"><span class="bg-slate-800 text-slate-300 text-xs px-2 py-0.5 rounded border border-slate-700/60">${p.tool}</span></td>
+                    <td class="py-3 px-3 text-slate-300 hidden sm:table-cell">${p.metric}</td>
+                    <td class="py-3 px-3 text-right">
+                        <button class="text-xs bg-blue-600/20 text-blue-400 hover:bg-blue-600 hover:text-white border border-blue-500/30 px-2.5 py-1 rounded transition">View <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function switchCategory(categoryKey, btnElem) {
+            document.querySelectorAll('.category-tab').forEach(b => b.classList.remove('active'));
+            btnElem.classList.add('active');
+            renderCategoryView(categoryKey);
         }
 
         function openModal(id) {
             const p = projectsData.find(item => item.id === id);
             if (!p) return;
 
-            document.getElementById('modal-category').innerText = p.categoryLabel;
-            document.getElementById('modal-category').className = `text-xs font-semibold uppercase tracking-wider mb-2 inline-block ${p.categoryColor}`;
+            document.getElementById('modal-category').innerText = p.category;
             document.getElementById('modal-title').innerText = p.title;
             document.getElementById('modal-description').innerText = p.description;
-            
+
             const imgElem = document.getElementById('modal-image');
             imgElem.src = p.image;
-            imgElem.onerror = () => { imgElem.src = 'https://via.placeholder.com/800x500/0f172a/64748b?text=Image+Not+Found+in+images/+folder'; };
+            imgElem.onerror = () => { imgElem.src = 'https://via.placeholder.com/800x450/0f172a/64748b?text=Image+Not+Found+in+images/+folder'; };
 
             document.getElementById('modal-highlights').innerHTML = p.highlights.map(h => `<li>${h}</li>`).join('');
-            document.getElementById('modal-tags').innerHTML = p.tags.map(t => `<span class="bg-slate-900 text-slate-300 text-xs px-2.5 py-1 rounded border border-slate-700">${t}</span>`).join('');
+            document.getElementById('modal-tags').innerHTML = p.tags.map(t => `<span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded border border-slate-700">${t}</span>`).join('');
 
             const modal = document.getElementById('project-modal');
             modal.classList.remove('hidden');
@@ -246,7 +376,10 @@
         }
 
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-        document.addEventListener('DOMContentLoaded', () => { renderProjects('all'); });
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCategoryCounts();
+            renderCategoryView('cam');
+        });
     </script>
 </body>
 </html>
