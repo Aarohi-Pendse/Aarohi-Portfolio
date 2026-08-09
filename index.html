@@ -117,10 +117,10 @@
     <div id="project-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm p-4 sm:p-6 md:p-10 items-center justify-center overflow-y-auto">
         <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-4xl w-full p-6 sm:p-8 relative shadow-2xl my-auto">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-2xl w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-800 transition">&times;</button>
-            
+
             <span id="modal-category" class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1 inline-block">Category</span>
             <h3 id="modal-title" class="text-2xl font-bold text-white mb-4">Project Title</h3>
-            
+
             <!-- High-Res Graphic / Render View -->
             <div class="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden mb-6 flex items-center justify-center min-h-[260px] max-h-[400px]">
                 <img id="modal-image" src="" alt="Technical Graphic View" class="max-h-[380px] w-auto object-contain">
@@ -175,7 +175,8 @@
                     "Ran Vericut simulation checks to ensure zero tool/fixture collisions."
                 ],
                 tags: ["Mastercam", "CNC Machining", "GD&T", "Vericut"]
-            
+            },
+            {
                 id: "cam-2",
                 category: "cam",
                 title: "Regeneratively Cooling Rocket Nozzle",
@@ -188,7 +189,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-            
+            },
+            {
                 id: "cam-3",
                 category: "cam",
                 title: "Turbopump Volute",
@@ -201,7 +203,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-           
+            },
+            {
                 id: "cam-4",
                 category: "cam",
                 title: "Clevis Joint",
@@ -214,7 +217,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-           
+            },
+            {
                 id: "cam-5",
                 category: "cam",
                 title: "4-Intanke Engine",
@@ -227,7 +231,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-           
+            },
+            {
                 id: "cam-6",
                 category: "cam",
                 title: "Manifold Port",
@@ -240,7 +245,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-            
+            },
+            {
                 id: "cam-7",
                 category: "cam",
                 title: "Gearbox Case",
@@ -253,7 +259,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-            
+            },
+            {
                 id: "cam-8",
                 category: "cam",
                 title: "Toe Clamp",
@@ -266,7 +273,8 @@
                     "Prevented thin-wall deformation during high-RPM turning operations."
                 ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-            
+            },
+            {
                 id: "cam-9",
                 category: "cam",
                 title: "Mount Everest Topology Machining",
@@ -295,7 +303,8 @@
                     "Maintained minimum Factor of Safety (FOS) of 1.6 under maximum braking/cornering combined loads."
                 ],
                 tags: ["ANSYS Mechanical", "FEA", "Fatigue Analysis"]
-           
+            },
+            {
                 id: "fea-2",
                 category: "fea",
                 title: "Non-linear I-beam Buckling",
@@ -308,7 +317,8 @@
                     "Maintained minimum Factor of Safety (FOS) of 1.6 under maximum braking/cornering combined loads."
                 ],
                 tags: ["ANSYS Mechanical", "FEA", "Fatigue Analysis"]
-           
+            },
+            {
                 id: "fea-3",
                 category: "fea",
                 title: "Thermal-Mechanical Fatigue Analysis",
@@ -321,7 +331,8 @@
                     "Maintained minimum Factor of Safety (FOS) of 1.6 under maximum braking/cornering combined loads."
                 ],
                 tags: ["ANSYS Mechanical", "FEA", "Fatigue Analysis"]
-            
+            },
+            {
                 id: "fea-4",
                 category: "fea",
                 title: "Simple Beam",
@@ -334,7 +345,8 @@
                     "Maintained minimum Factor of Safety (FOS) of 1.6 under maximum braking/cornering combined loads."
                 ],
                 tags: ["ANSYS Mechanical", "FEA", "Fatigue Analysis"]
-            
+            },
+            {
                 id: "fea-5",
                 category: "fea",
                 title: "Welded Joint Structural Analysis",
@@ -347,7 +359,8 @@
                     "Maintained minimum Factor of Safety (FOS) of 1.6 under maximum braking/cornering combined loads."
                 ],
                 tags: ["ANSYS Mechanical", "FEA", "Fatigue Analysis"]
-            
+            },
+            {
                 id: "fea-6",
                 category: "fea",
                 title: "Something",
@@ -376,7 +389,8 @@
                     "Calculated creep and thermal deformation limits under steady-state firing loads."
                 ],
                 tags: ["ANSYS Thermal", "Thermal Stress", "Coupled Analysis"]
-            
+            },
+            {
                 id: "thermo-2",
                 category: "thermo",
                 title: "Transient Slab Analysis",
@@ -389,10 +403,11 @@
                     "Calculated creep and thermal deformation limits under steady-state firing loads."
                 ],
                 tags: ["ANSYS Thermal", "Thermal Stress", "Coupled Analysis"]
-            
+            },
+            {
                 id: "thermo-3",
                 category: "thermo",
-                title: "2 Bock-no contact Thermal Analysis",
+                title: "2 Block - No Contact Thermal Analysis",
                 tool: "ANSYS Multi-physics",
                 metric: "Thermal Margin Verified",
                 image: "images/thrust-thermal.png",
@@ -402,10 +417,11 @@
                     "Calculated creep and thermal deformation limits under steady-state firing loads."
                 ],
                 tags: ["ANSYS Thermal", "Thermal Stress", "Coupled Analysis"]
-           
-                id: "thermo-1",
+            },
+            {
+                id: "thermo-4",
                 category: "thermo",
-                title: "Bird- Strike Thermal Choke??",
+                title: "Bird-Strike Thermal Choke Analysis",
                 tool: "ANSYS Multi-physics",
                 metric: "Thermal Margin Verified",
                 image: "images/thrust-thermal.png",
@@ -417,12 +433,11 @@
                 tags: ["ANSYS Thermal", "Thermal Stress", "Coupled Analysis"]
             },
 
-
             // --- CFD ---
             {
                 id: "cfd-1",
                 category: "cfd",
-                title: "Coupled Thermo-Fluid-Structural Analsys of a Methalox Regenratively cooled Rocket Nozzle",
+                title: "Coupled Thermo-Fluid-Structural Analysis of a Methalox Regeneratively Cooled Rocket Nozzle",
                 tool: "ANSYS Fluent",
                 metric: "< 3.5°C Cell Variance",
                 image: "images/coldplate-cfd.png",
@@ -432,7 +447,8 @@
                     "Optimized fluid distribution manifolds to mitigate hot spots."
                 ],
                 tags: ["ANSYS Fluent", "CFD", "Heat Transfer"]
-            
+            },
+            {
                 id: "cfd-2",
                 category: "cfd",
                 title: "Manifold Flow + Pressure Drop CFD Analysis",
@@ -445,10 +461,11 @@
                     "Optimized fluid distribution manifolds to mitigate hot spots."
                 ],
                 tags: ["ANSYS Fluent", "CFD", "Heat Transfer"]
-            
+            },
+            {
                 id: "cfd-3",
                 category: "cfd",
-                title: "Compressible",
+                title: "Compressible Flow Analysis",
                 tool: "ANSYS Fluent",
                 metric: "< 3.5°C Cell Variance",
                 image: "images/coldplate-cfd.png",
@@ -458,7 +475,8 @@
                     "Optimized fluid distribution manifolds to mitigate hot spots."
                 ],
                 tags: ["ANSYS Fluent", "CFD", "Heat Transfer"]
-            
+            },
+            {
                 id: "cfd-4",
                 category: "cfd",
                 title: "Multiphase CFD Simulation",
@@ -471,7 +489,8 @@
                     "Optimized fluid distribution manifolds to mitigate hot spots."
                 ],
                 tags: ["ANSYS Fluent", "CFD", "Heat Transfer"]
-            
+            },
+            {
                 id: "cfd-5",
                 category: "cfd",
                 title: "Shock Diamond CFD",
@@ -490,7 +509,7 @@
             {
                 id: "code-1",
                 category: "coding",
-                title: "Regenratively cooling Nozzle Heat Flux and Temperature Distributions",
+                title: "Regeneratively Cooled Nozzle Heat Flux and Temperature Distributions",
                 tool: "Python",
                 metric: "4 Hours Saved / Test Run",
                 image: "images/python-daq.png",
@@ -500,7 +519,8 @@
                     "Generated automated PDF plots for pressure transducers and thermocouples."
                 ],
                 tags: ["Python", "Pandas", "Matplotlib", "Automation"]
-            
+            },
+            {
                 id: "code-2",
                 category: "coding",
                 title: "Pressurization of Liquid Rocket Engine",
@@ -513,7 +533,8 @@
                     "Generated automated PDF plots for pressure transducers and thermocouples."
                 ],
                 tags: ["Python", "Pandas", "Matplotlib", "Automation"]
-            
+            },
+            {
                 id: "code-3",
                 category: "coding",
                 title: "Transient Water Hammer Analysis in Valves",
@@ -526,7 +547,8 @@
                     "Generated automated PDF plots for pressure transducers and thermocouples."
                 ],
                 tags: ["Python", "Pandas", "Matplotlib", "Automation"]
-            
+            },
+            {
                 id: "code-4",
                 category: "coding",
                 title: "Turbopump Spinup and Valve Timing Simulator",
@@ -555,7 +577,8 @@
                     "Annotated line sizing, pressure ratings, and fail-safe state designations."
                 ],
                 tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
-            
+            },
+            {
                 id: "pid-2",
                 category: "pids",
                 title: "Differential Pressure Test",
@@ -568,7 +591,8 @@
                     "Annotated line sizing, pressure ratings, and fail-safe state designations."
                 ],
                 tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
-            
+            },
+            {
                 id: "pid-3",
                 category: "pids",
                 title: "1000psi Proof + Leak Test Stand",
@@ -581,7 +605,8 @@
                     "Annotated line sizing, pressure ratings, and fail-safe state designations."
                 ],
                 tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
-            
+            },
+            {
                 id: "pid-4",
                 category: "pids",
                 title: "Pressurization and Cold Flow Test",
@@ -594,7 +619,8 @@
                     "Annotated line sizing, pressure ratings, and fail-safe state designations."
                 ],
                 tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
-           \
+            },
+            {
                 id: "pid-5",
                 category: "pids",
                 title: "High Pressure Regulator Testing",
@@ -623,7 +649,8 @@
                     "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
                 ],
                 tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
-            
+            },
+            {
                 id: "lab-2",
                 category: "labwork",
                 title: "7075-T6 Fatigue & Tensile Testing Lab",
@@ -636,7 +663,8 @@
                     "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
                 ],
                 tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
-           
+            },
+            {
                 id: "lab-3",
                 category: "labwork",
                 title: "Autonomous UAV Control Systems Testing Lab",
@@ -649,7 +677,8 @@
                     "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
                 ],
                 tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
-           
+            },
+            {
                 id: "lab-4",
                 category: "labwork",
                 title: "AAE 439 - Fundamentals Of Rocket Propulsion",
@@ -662,7 +691,8 @@
                     "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
                 ],
                 tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
-          
+            },
+            {
                 id: "lab-5",
                 category: "labwork",
                 title: "AAE 340 - Orbital Dynamics",
