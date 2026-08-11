@@ -205,8 +205,10 @@
                 sections: [
                     {
                         label: "Machine",
-                        value: "Setups 1 & 2 on a Haas VF-4 (3-axis), migrating to 5-axis for Setup 3.",
-                        "Manually milled and leveled one end of the stock prior to Setup 2 to prevent external offset torques from damaging or breaking the machine."
+                        items: [
+                            "Setups 1 & 2 on a Haas VF-4 (3-axis), migrating to 5-axis for Setup 3.",
+                            "Manually milled and leveled one end of the stock prior to Setup 2 to prevent external offset torques from damaging or breaking the machine."
+                        ]
                     },
                     {
                         label: "Tooling",
@@ -215,12 +217,13 @@
                     {
                         label: "Toolpath Strategy",
                         items: [
-                           "Programmed facing and adaptive clearing with a 1 inch extended Stellram cutter for inner hollow contouring.",
-                        "Mid-Process Issue & Tooling Adaptation: Tool chipped during the operation, causing the process to stop midway; created another NC program and setup to recover. Switched to a smaller ball end nose mill (1/2 inch to 3/8 inch) and ran 2 boring operations for finishing.",
-                        "Feedrate Optimization: Throttled lead-in/lead-out feed rates down to 90 in/min on the inner contour to balance inner/outer angular velocity differences and prevent the part from flying off the fixture.",
-                        "Ran 2 Rotary Parallel passes for stock clearing and forming the main nozzle outer profile. Programmed 1 rotary pass and pattern strategy to cut external cooling slots."]
-                    },
-                    
+                            "Programmed facing and adaptive clearing with a 1 inch extended Stellram cutter for inner hollow contouring.",
+                            "Mid-Process Issue & Tooling Adaptation: Tool chipped during the operation, causing the process to stop midway; created another NC program and setup to recover. Switched to a smaller ball end nose mill (1/2 inch to 3/8 inch) and ran 2 boring operations for finishing.",
+                            "Feedrate Optimization: Throttled lead-in/lead-out feed rates down to 90 in/min on the inner contour to balance inner/outer angular velocity differences and prevent the part from flying off the fixture.",
+                            "Ran 2 Rotary Parallel passes for stock clearing and forming the main nozzle outer profile. Programmed 1 rotary pass and pattern strategy to cut external cooling slots."
+                        ]
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -252,6 +255,9 @@
                             "Setup 1 (VF-4): Performed initial facing to prepare the clearing stock.",
                             "Setup 2 (5-Axis): Programmed multiple 3+2 clearing toolpaths using different tools (ball mills with varying diameters), adjusting feed rates and stepdown increments to decrease stress on the tool during deep cuts."
                         ]
+                    }
+                ],
+                tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
                 id: "cam-4",
@@ -270,14 +276,14 @@
                         label: "Tooling",
                         value: "3/8 inch HSS Twist Drill (for threads) and a 2 inch Stellram cutter."
                     },
-                
                     {
                         label: "Toolpath Strategy",
                         items: [
                             "Had to tweak and change toolpath parameters multiple times during setup to prevent the tool from hitting the vise jaws during execution.",
-                            "Could not fully optimize the setup; required special attention to GD&T and sloped tolerances.",
-                           
+                            "Could not fully optimize the setup; required special attention to GD&T and sloped tolerances."
                         ]
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -296,14 +302,14 @@
                     {
                         label: "Challenges",
                         items: [
-                           "Could not optimize setup time due to having to flip and re-index the part across 4 operations.", 
+                            "Could not optimize setup time due to having to flip and re-index the part across 4 operations.",
                             "Applied standard facing and drilling strategies.",
                             "Difficult Feature: Deep thru-hole along the longest side of the part.",
                             "Experienced high torque during a Stellram boring operation, requiring decreased feed rates to manage cutting forces.",
                             "Status: Toolpaths complete; part is still to be manufactured."
                         ]
-                    },
-                        
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -323,9 +329,10 @@
                         label: "Takeaways and lessons learned",
                         items: [
                             "Realized after programming that this geometry should be woodworked on a router instead of metal-milled.",
-                        "Highlighted the need to learn how to better optimize feed rates and clearing strategies for minute Z-axis height differences."]
-                    },
-                    
+                            "Highlighted the need to learn how to better optimize feed rates and clearing strategies for minute Z-axis height differences."
+                        ]
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -341,11 +348,13 @@
                         label: "Machine",
                         value: "VF-4 and 5-axis setups."
                     },
-                   
                     {
                         label: "Toolpath Strategy",
                         items: [
-                            "On the 5-axis setup, utilized pocket strategies and adaptive toolpaths that successfully took care of long mid-clearing passes without side bars shivering under cutting pressure."]
+                            "On the 5-axis setup, utilized pocket strategies and adaptive toolpaths that successfully took care of long mid-clearing passes without side bars shivering under cutting pressure."
+                        ]
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -356,7 +365,7 @@
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-               sections: [
+                sections: [
                     {
                         label: "Machine",
                         value: "5-axis setup on a HAAS UMC-500."
@@ -380,6 +389,8 @@
                             "Finishing pass: 3/16 in Kencut square end mill running two 3+2 clearing toolpaths to minimize cutter stress.",
                             "Feedrate tuning: reduced lead-in/lead-out feed to 90 in/min on pocket passes to eliminate tool chatter."
                         ]
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -414,6 +425,8 @@
                             "Finishing pass: 3/16 in Kencut square end mill running two 3+2 clearing toolpaths to minimize cutter stress.",
                             "Feedrate tuning: reduced lead-in/lead-out feed to 90 in/min on pocket passes to eliminate tool chatter."
                         ]
+                    }
+                ],
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
 
