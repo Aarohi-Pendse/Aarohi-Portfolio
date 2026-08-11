@@ -168,13 +168,18 @@
                 tool: "5 axis, Manual milling",
                 metric: "22% Cycle Time Reduction",
                 image: "images/impeller-cam.jpg",
-                description: "Optimized toolpaths and G-code generation for titanium turbocharger impellers on 5-axis CNC mills.",
-                highlights: [
-                    "Programmed dynamic roughing and finishing toolpaths in Mastercam.",
-                    "Maintained surface finish tolerance below 0.8 µm Ra.",
-                    "Ran Vericut simulation checks to ensure zero tool/fixture collisions."
+                Machine: "5-Axis setup on a HAAS UMC-500",
+                description: "Optimized toolpaths and manufacturing Al impellers on a 5-axis CNC.",
+                Tooling: "1 inch Stellram insert mill, boring bar (max 1 inch metal square end), and a 60° drill",
+                Challenges: ["Complex geometry with tight tolerances; distance between impeller blades is only 0.15 in, creating a very tight space for any tool to pass through.",
+                             "Personal CAD/CAM Modification: Since this was a project to learn, I decided to delete half of the blades on the model to allow better clearance for 3+2 adaptive cleaning toolpaths."],
+                Toolpath_Strategy:[
+                    "Setup 1: Ran two 2D adaptive clearing passes separated to allow for a higher stepdown (max 0.15 in) and facing, reducing machining time and stress on the tool.",
+                    "Setup 2: Executed 2 adaptives and 1 facing operation with larger 1 inch tools to clear out bulk stock material.",
+                    "Finishing Pass: Used a 3/16 inch Kencut square end mill with two 3+2 clearing toolpaths as a finishing strategy to minimize cutter stress.",
+                    "Feedrate Adjustment: Decreased lead-in/lead-out feed rate down to 90 in/min during pocket passes to stop tool shivering and chatter."
                 ],
-                tags: ["Mastercam", "CNC Machining", "GD&T", "Vericut"]
+                tags: ["Mastercam", "CNC Machining", "GD&T", "5 axis"]
             },
             {
                 id: "cam-2",
