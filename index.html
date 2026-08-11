@@ -83,7 +83,7 @@
                 <div>
                     <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
                         <h2 id="active-category-title" class="text-xl font-bold text-blue-400">CAM & Manufacturing</h2>
-                        <span id="category-summary" class="text-xs text-slate-400">Click any entry to view full CAD/data renders</span>
+                        <span id="category-summary" class="text-xs text-slate-400">Test-cell architectures, GSE schematics, instrumentation & safety systems</span>
                     </div>
 
                     <!-- Project Table View -->
@@ -704,76 +704,212 @@
                 tags: ["Python", "Pandas", "Matplotlib", "Automation"]
             },
 
-            // --- P&IDs & SCHEMATICS ---
+            // --- P&IDs & SYSTEM SCHEMATICS ---
             {
                 id: "pid-1",
                 category: "pids",
-                title: "Cryogenic Thermal Shock Test",
-                tool: "Visio / AutoCAD",
-                metric: "Full Relief Valves & Interlocks",
+                title: "Pneumatic Actuation & CO₂ Emergency Quench System",
+                tool: "P&ID / Fluid Systems Architecture",
+                metric: "20 psi GN₂ Pilot Header",
                 image: "images/test-stand-pid.png",
-                description: "System schematic layout for gas press-fed liquid propellants test cell plumbing.",
-                highlights: [
-                    "Mapped manual/solenoid valves, pressure transducers, relief burst discs, and purge lines.",
-                    "Annotated line sizing, pressure ratings, and fail-safe state designations."
+                description: "Designed pneumatic actuation logic and emergency isolation loops for test-cell valves, with emphasis on fail-safe operation during abort conditions and rapid response to fire or thermal anomalies.",
+                sections: [
+                    {
+                        label: "System Specifications",
+                        items: [
+                            "20 psi regulated GN₂ pilot header supplying pneumatic ball and butterfly valves.",
+                            "Remote-actuated CO₂ emergency quench circuit routed directly into the test bay for rapid fire suppression."
+                        ]
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Evaluated potential pneumatic actuation lag caused by pilot manifold sizing and compared a shared manifold architecture against individual pilot regulators.",
+                            "Addressed pressure-drop cross-talk during simultaneous cycling of multiple pneumatic actuators."
+                        ]
+                    },
+                    {
+                        label: "Architecture & Strategy",
+                        items: [
+                            "Established a regulated GN₂ pilot supply architecture for pneumatic valve actuation.",
+                            "Isolated pilot lines to reduce interaction between actuators during concurrent valve commands.",
+                            "Integrated emergency isolation logic with the remote CO₂ quench circuit for abort and thermal-anomaly conditions."
+                        ]
+                    },
+                    {
+                        label: "Safety & Failure Mitigation",
+                        items: [
+                            "Focused on fail-safe valve states and rapid isolation during emergency conditions.",
+                            "Designed the pneumatic architecture around reliable actuation and minimized response delay."
+                        ]
+                    }
                 ],
-                tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
+                tags: ["P&ID", "GN₂ Pneumatics", "CO₂ Quench", "Valve Actuation", "Fail-Safe Design", "Test Cell GSE"]
             },
             {
                 id: "pid-2",
                 category: "pids",
-                title: "Differential Pressure Test",
-                tool: "Visio / AutoCAD",
-                metric: "Full Relief Valves & Interlocks",
+                title: "High-Pressure Regulator Characterization & Droop Test Stand",
+                tool: "P&ID / Instrumentation / Test Stand",
+                metric: "300–3000 psi GN₂",
                 image: "images/test-stand-pid.png",
-                description: "System schematic layout for gas press-fed liquid propellants test cell plumbing.",
-                highlights: [
-                    "Mapped manual/solenoid valves, pressure transducers, relief burst discs, and purge lines.",
-                    "Annotated line sizing, pressure ratings, and fail-safe state designations."
+                description: "Developed a high-pressure GN₂ test-stand architecture to characterize regulator pressure droop as a function of inlet pressure and dynamic gas flow rate while controlling risks associated with lock-up pressure spikes and downstream overpressurization.",
+                sections: [
+                    {
+                        label: "System Specifications",
+                        items: [
+                            "300–3000 psi high-pressure GN₂ operating range.",
+                            "Characterized regulator behavior across varying inlet pressures and dynamic flow conditions."
+                        ]
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Mapped pressure droop behavior under changing gas flow rates and inlet conditions.",
+                            "Addressed rapid lock-up pressure spikes and downstream overpressurization risks during regulator testing."
+                        ]
+                    },
+                    {
+                        label: "Test Architecture",
+                        items: [
+                            "Configured high-pressure GN₂ supply feeds with upstream Main Block Valves (MBV), Pressure-Balanced Unloader Valves (PBU), and primary dome/manual regulators.",
+                            "Structured the test loop to isolate and characterize regulator performance under controlled operating conditions."
+                        ]
+                    },
+                    {
+                        label: "Instrumentation & Flow Analysis",
+                        items: [
+                            "Positioned upstream and downstream Pressure Transducers (PT) to measure pressure response and differential pressure across the regulator.",
+                            "Integrated Thermocouples (TC), Venturi flow meters, and safety Relief Valves (RV) for temperature, flow, and overpressure monitoring.",
+                            "Used real-time pressure and mass-flow measurements to construct regulator droop curves."
+                        ]
+                    }
                 ],
-                tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
+                tags: ["P&ID", "High-Pressure GN₂", "Regulators", "PT", "TC", "Venturi", "Relief Valves", "Instrumentation"]
             },
             {
                 id: "pid-3",
                 category: "pids",
-                title: "1000psi Proof + Leak Test Stand",
-                tool: "Visio / AutoCAD",
-                metric: "Full Relief Valves & Interlocks",
+                title: "Propellant Run-Tank Pressurization & LN₂ Cold-Flow Rig",
+                tool: "P&ID / Cryogenic Fluid Systems",
+                metric: "800 psi Ullage Pressurization",
                 image: "images/test-stand-pid.png",
-                description: "System schematic layout for gas press-fed liquid propellants test cell plumbing.",
-                highlights: [
-                    "Mapped manual/solenoid valves, pressure transducers, relief burst discs, and purge lines.",
-                    "Annotated line sizing, pressure ratings, and fail-safe state designations."
+                description: "Drafted P&ID schematics for a run-tank pressurization feed and LN₂ cold-flow test loop used to evaluate injector hydraulics and propellant feed dynamics while accounting for cryogenic phase-change and trapped-liquid hazards.",
+                sections: [
+                    {
+                        label: "System Specifications",
+                        items: [
+                            "800 psi regulated GN₂ ullage pressurization circuit.",
+                            "LN₂ chilldown and feed loop for cold-flow evaluation of injector hydraulics and propellant feed behavior."
+                        ]
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Prevented fluid cross-contamination between pressurization, cryogenic feed, purge, and vent paths.",
+                            "Accounted for boil-off gas expansion during chilldown and post-test conditions.",
+                            "Addressed trapped-liquid hazards in isolated cryogenic line segments."
+                        ]
+                    },
+                    {
+                        label: "System Strategy & Instrumentation",
+                        items: [
+                            "Designed an 800 psi regulated GN₂ circuit to maintain run-tank ullage pressure.",
+                            "Instrumented the pressurization system with dual Resistance Temperature Detectors (RTD) and pressure transducers.",
+                            "Placed inline Check Valves (CV) and dedicated relief paths downstream of the LN₂ Dewar to prevent backflow and provide controlled pressure relief."
+                        ]
+                    },
+                    {
+                        label: "Purge, Vent & Cryogenic Safety",
+                        items: [
+                            "Added dedicated GN₂ purge logic to clear and condition lines before and after cryogenic operation.",
+                            "Provided vent paths to safely manage phase-change expansion during chilldown and post-test aborts."
+                        ]
+                    }
                 ],
-                tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
+                tags: ["P&ID", "LN₂", "GN₂ Pressurization", "Cryogenic GSE", "RTD", "PT", "Check Valves", "Purge & Vent"]
             },
             {
                 id: "pid-4",
                 category: "pids",
-                title: "Pressurization and Cold Flow Test",
-                tool: "Visio / AutoCAD",
-                metric: "Full Relief Valves & Interlocks",
+                title: "Component Proof, Leak & Differential Pressure (ΔP) Test Loop",
+                tool: "P&ID / Hydrostatic & Pneumatic Testing",
+                metric: "1000 psi Pneumatic Proof",
                 image: "images/test-stand-pid.png",
-                description: "System schematic layout for gas press-fed liquid propellants test cell plumbing.",
-                highlights: [
-                    "Mapped manual/solenoid valves, pressure transducers, relief burst discs, and purge lines.",
-                    "Annotated line sizing, pressure ratings, and fail-safe state designations."
+                description: "Designed a multi-use test manifold architecture for 1000 psi gas proof and leak-decay testing and water-based differential-pressure characterization across test articles, with dedicated provisions for hydraulic energy management and pump protection.",
+                sections: [
+                    {
+                        label: "System Specifications",
+                        items: [
+                            "1000 psi GN₂ pneumatic proof and leak-test station.",
+                            "Water-based ΔP flow loop for component pressure-drop characterization."
+                        ]
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Managed stored hydraulic energy during hydrostatic testing.",
+                            "Prevented pump deadheading during fluid recirculation and protected test hardware from excessive pressure."
+                        ]
+                    },
+                    {
+                        label: "Proof & Leak Station",
+                        items: [
+                            "Built a GN₂ proof station using precision manual regulators, Pressure Gauges (PG), and isolation valves.",
+                            "Used pressure-decay monitoring to evaluate component leak behavior and calculate leak rates."
+                        ]
+                    },
+                    {
+                        label: "ΔP Flow Loop",
+                        items: [
+                            "Configured a Differential Pressure Transducer (DPT) across the test component to measure pressure loss.",
+                            "Integrated Venturi flow metering for constant mass-flow verification.",
+                            "Added a dedicated pump bypass line to prevent deadhead pressure from reaching the test article."
+                        ]
+                    }
                 ],
-                tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
+                tags: ["P&ID", "GN₂ Proof Testing", "Hydrostatic Testing", "DPT", "Venturi", "Pressure Decay", "Pump Bypass", "GSE"]
             },
             {
                 id: "pid-5",
                 category: "pids",
-                title: "High Pressure Regulator Testing",
-                tool: "Visio / AutoCAD",
-                metric: "Full Relief Valves & Interlocks",
+                title: "Cryogenic Thermal Shock & Freeze Valve Validation Rig",
+                tool: "P&ID / Cryogenic Hardware Qualification",
+                metric: "LN₂ Sub-Ambient Thermal Cycling",
                 image: "images/test-stand-pid.png",
-                description: "System schematic layout for gas press-fed liquid propellants test cell plumbing.",
-                highlights: [
-                    "Mapped manual/solenoid valves, pressure transducers, relief burst discs, and purge lines.",
-                    "Annotated line sizing, pressure ratings, and fail-safe state designations."
+                description: "Engineered an LN₂-based environmental thermal-shock schematic to evaluate valve seat sealing, material contraction, and operating limits under extreme cryogenic temperature gradients.",
+                sections: [
+                    {
+                        label: "System Specifications",
+                        items: [
+                            "LN₂ cryogenic test medium.",
+                            "Sub-ambient thermal cycling for valve qualification and freeze-up validation."
+                        ]
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Mitigated valve icing and freeze-up caused by ambient moisture ingress.",
+                            "Addressed line-rupture hazards associated with trapped cryogenic liquid and subsequent thermal expansion."
+                        ]
+                    },
+                    {
+                        label: "Cryogenic Supply & Fail-Safes",
+                        items: [
+                            "Connected an LN₂ Dewar feed through normally open/normally closed (NO/NC) pneumatic valves.",
+                            "Defined valve fail-safe states for loss of control power or pneumatic pressure."
+                        ]
+                    },
+                    {
+                        label: "Thermal Relief & Moisture Control",
+                        items: [
+                            "Added upstream GN₂ purge loops to dry the test lines before cryogenic chilldown.",
+                            "Installed Thermal Relief Valves (TRV) on isolated fluid segments to safely vent expanding boil-off gas.",
+                            "Used the purge and relief architecture to reduce moisture-related icing and trapped-cryogen hazards."
+                        ]
+                    }
                 ],
-                tags: ["P&ID", "Fluid Systems", "Plumbing Schematics"]
+                tags: ["P&ID", "LN₂", "GN₂ Purge", "Thermal Shock", "NO/NC Valves", "TRV", "Cryogenic Qualification", "Fail-Safe Design"]
             },
 
             // --- CLASS / LAB / CLUBWORK ---
@@ -938,7 +1074,16 @@
             const p = projectsData.find(item => item.id === id);
             if (!p) return;
 
-            document.getElementById('modal-category').innerText = p.category;
+            const modalCategoryNames = {
+                cam: "CAM / Manufacturing",
+                fea: "FEA",
+                thermo: "Thermo-Structural Analysis",
+                cfd: "CFD",
+                coding: "Coding & Data Automation",
+                pids: "P&IDs & System Schematics",
+                labwork: "Class, Lab & Club Projects"
+            };
+            document.getElementById('modal-category').innerText = modalCategoryNames[p.category] || p.category;
             document.getElementById('modal-title').innerText = p.title;
             document.getElementById('modal-description').innerText = p.description;
 
