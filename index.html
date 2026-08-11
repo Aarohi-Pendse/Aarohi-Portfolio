@@ -132,11 +132,8 @@
                     <p id="modal-description" class="text-slate-300">Detailed breakdown...</p>
                 </div>
 
-                <div>
-                    <h4 class="text-xs font-semibold uppercase text-slate-400 mb-1">Key Engineering Deliverables & Results</h4>
-                    <ul id="modal-highlights" class="list-disc list-inside space-y-1 text-slate-300">
-                        <!-- Highlights -->
-                    </ul>
+                <div id="modal-details" class="space-y-4">
+                    <!-- Highlights or labeled sections (Machine, Tooling, Challenges, Strategy, etc.) populate here -->
                 </div>
 
                 <div>
@@ -168,16 +165,32 @@
                 tool: "5 axis, Manual milling",
                 metric: "22% Cycle Time Reduction",
                 image: "images/impeller-cam.jpg",
-                Machine: "5-Axis setup on a HAAS UMC-500",
-                description: "Optimized toolpaths and manufacturing Al impellers on a 5-axis CNC.",
-                Tooling: "1 inch Stellram insert mill, boring bar (max 1 inch metal square end), and a 60° drill",
-                Challenges: ["Complex geometry with tight tolerances; distance between impeller blades is only 0.15 in, creating a very tight space for any tool to pass through.",
-                             "Personal CAD/CAM Modification: Since this was a project to learn, I decided to delete half of the blades on the model to allow better clearance for 3+2 adaptive cleaning toolpaths."],
-                Toolpath_Strategy:[
-                    "Setup 1: Ran two 2D adaptive clearing passes separated to allow for a higher stepdown (max 0.15 in) and facing, reducing machining time and stress on the tool.",
-                    "Setup 2: Executed 2 adaptives and 1 facing operation with larger 1 inch tools to clear out bulk stock material.",
-                    "Finishing Pass: Used a 3/16 inch Kencut square end mill with two 3+2 clearing toolpaths as a finishing strategy to minimize cutter stress.",
-                    "Feedrate Adjustment: Decreased lead-in/lead-out feed rate down to 90 in/min during pocket passes to stop tool shivering and chatter."
+                description: "Optimized toolpaths and manufactured an aluminum impeller on a 5-axis HAAS UMC-500, working around blade gaps as tight as 0.15 in.",
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "5-axis setup on a HAAS UMC-500."
+                    },
+                    {
+                        label: "Tooling",
+                        value: "1 in Stellram insert mill, boring bar (max 1 in square end), and a 60° drill."
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Blade-to-blade clearance of only 0.15 in left very little room for any tool to pass through.",
+                            "CAD/CAM modification: removed half the blades in the model to open up clearance for 3+2 adaptive clearing toolpaths."
+                        ]
+                    },
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                            "Setup 1: two separated 2D adaptive clearing passes at up to 0.15 in stepdown, plus facing, to cut machining time and tool stress.",
+                            "Setup 2: two adaptive passes and one facing operation with larger 1 in tools to remove bulk stock.",
+                            "Finishing pass: 3/16 in Kencut square end mill running two 3+2 clearing toolpaths to minimize cutter stress.",
+                            "Feedrate tuning: reduced lead-in/lead-out feed to 90 in/min on pocket passes to eliminate tool chatter."
+                        ]
+                    }
                 ],
                 tags: ["Mastercam", "CNC Machining", "GD&T", "5 axis"]
             },
@@ -189,10 +202,25 @@
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "Setups 1 & 2 on a Haas VF-4 (3-axis), migrating to 5-axis for Setup 3.",
+                        "Manually milled and leveled one end of the stock prior to Setup 2 to prevent external offset torques from damaging or breaking the machine."
+                    },
+                    {
+                        label: "Tooling",
+                        value: "1 in Stellram insert mill, boring bar (max 1 in square end), and a 60° drill."
+                    },
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                           "Programmed facing and adaptive clearing with a 1 inch extended Stellram cutter for inner hollow contouring.",
+                        "Mid-Process Issue & Tooling Adaptation: Tool chipped during the operation, causing the process to stop midway; created another NC program and setup to recover. Switched to a smaller ball end nose mill (1/2 inch to 3/8 inch) and ran 2 boring operations for finishing.",
+                        "Feedrate Optimization: Throttled lead-in/lead-out feed rates down to 90 in/min on the inner contour to balance inner/outer angular velocity differences and prevent the part from flying off the fixture.",
+                        "Ran 2 Rotary Parallel passes for stock clearing and forming the main nozzle outer profile. Programmed 1 rotary pass and pattern strategy to cut external cooling slots."]
+                    },
+                    
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
@@ -203,94 +231,189 @@
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
-                tags: ["Haas Lathe", "Workholding", "Precision Machining"]
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "VF-4 facing setup, moving to 5-axis for complex feature clearing."
+                    },
+                    {
+                        label: "Tooling",
+                        value: "1 in Stellram insert mill, boring bar (max 1 in square end), and a 60° drill."
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "The part's diameter-to-height ratio was relatively too small, creating tricky workholding stability issues."
+                        ]
+                    },
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                            "Setup 1 (VF-4): Performed initial facing to prepare the clearing stock.",
+                            "Setup 2 (5-Axis): Programmed multiple 3+2 clearing toolpaths using different tools (ball mills with varying diameters), adjusting feed rates and stepdown increments to decrease stress on the tool during deep cuts."
+                        ]
             },
             {
                 id: "cam-4",
                 category: "cam",
-                title: "Clevis Joint",
+                title: "Toe clamp",
                 tool: "VF-4, 5 axis, manual milling",
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "Simple VF-4 setup utilizing flat jaws DP."
+                    },
+                    {
+                        label: "Tooling",
+                        value: "3/8 inch HSS Twist Drill (for threads) and a 2 inch Stellram cutter."
+                    },
+                
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                            "Had to tweak and change toolpath parameters multiple times during setup to prevent the tool from hitting the vise jaws during execution.",
+                            "Could not fully optimize the setup; required special attention to GD&T and sloped tolerances.",
+                           
+                        ]
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
                 id: "cam-5",
-                category: "cam",
-                title: "4-Intanke Engine",
-                tool: "VF-4, 5 axis, manual milling",
-                metric: "< 0.0005 in Concentricity",
-                image: "images/soft-jaws.jpg",
-                description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
-                tags: ["Haas Lathe", "Workholding", "Precision Machining"]
-            },
-            {
-                id: "cam-6",
                 category: "cam",
                 title: "Manifold Port",
                 tool: "VF-4, 5 axis, manual milling",
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "4 separate setups on a Haas VF-4 (5-axis machine was unavailable)."
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                           "Could not optimize setup time due to having to flip and re-index the part across 4 operations.", 
+                            "Applied standard facing and drilling strategies.",
+                            "Difficult Feature: Deep thru-hole along the longest side of the part.",
+                            "Experienced high torque during a Stellram boring operation, requiring decreased feed rates to manage cutting forces.",
+                            "Status: Toolpaths complete; part is still to be manufactured."
+                        ]
+                    },
+                        
+                tags: ["Haas Lathe", "Workholding", "Precision Machining"]
+            },
+            {
+                id: "cam-6",
+                category: "cam",
+                title: "Everest",
+                tool: "VF-4, 5 axis, manual milling",
+                metric: "< 0.0005 in Concentricity",
+                image: "images/soft-jaws.jpg",
+                description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "Longest CAM toolpath strategy generated—done for fun and practice."
+                    },
+                    {
+                        label: "Takeaways and lessons learned",
+                        items: [
+                            "Realized after programming that this geometry should be woodworked on a router instead of metal-milled.",
+                        "Highlighted the need to learn how to better optimize feed rates and clearing strategies for minute Z-axis height differences."]
+                    },
+                    
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
                 id: "cam-7",
                 category: "cam",
-                title: "Gearbox Case",
+                title: "Clevis Joint",
                 tool: "VF-4, 5 axis, manual milling",
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "VF-4 and 5-axis setups."
+                    },
+                   
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                            "On the 5-axis setup, utilized pocket strategies and adaptive toolpaths that successfully took care of long mid-clearing passes without side bars shivering under cutting pressure."]
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
                 id: "cam-8",
                 category: "cam",
-                title: "Toe Clamp",
+                title: "Gearbox Casing",
                 tool: "VF-4, 5 axis, manual milling",
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
+               sections: [
+                    {
+                        label: "Machine",
+                        value: "5-axis setup on a HAAS UMC-500."
+                    },
+                    {
+                        label: "Tooling",
+                        value: "1 in Stellram insert mill, boring bar (max 1 in square end), and a 60° drill."
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Blade-to-blade clearance of only 0.15 in left very little room for any tool to pass through.",
+                            "CAD/CAM modification: removed half the blades in the model to open up clearance for 3+2 adaptive clearing toolpaths."
+                        ]
+                    },
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                            "Setup 1: two separated 2D adaptive clearing passes at up to 0.15 in stepdown, plus facing, to cut machining time and tool stress.",
+                            "Setup 2: two adaptive passes and one facing operation with larger 1 in tools to remove bulk stock.",
+                            "Finishing pass: 3/16 in Kencut square end mill running two 3+2 clearing toolpaths to minimize cutter stress.",
+                            "Feedrate tuning: reduced lead-in/lead-out feed to 90 in/min on pocket passes to eliminate tool chatter."
+                        ]
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
             {
                 id: "cam-9",
                 category: "cam",
-                title: "Mount Everest Topology Machining",
+                title: "Engine 4-intake",
                 tool: "VF-4, 5 axis, manual milling",
                 metric: "< 0.0005 in Concentricity",
                 image: "images/soft-jaws.jpg",
                 description: "Custom aluminum soft jaw machining for precision mounting of thin-walled turned fittings.",
-                highlights: [
-                    "Bored jaws to match non-standard cylindrical geometry.",
-                    "Prevented thin-wall deformation during high-RPM turning operations."
-                ],
+                sections: [
+                    {
+                        label: "Machine",
+                        value: "5-axis setup on a HAAS UMC-500."
+                    },
+                    {
+                        label: "Tooling",
+                        value: "1 in Stellram insert mill, boring bar (max 1 in square end), and a 60° drill."
+                    },
+                    {
+                        label: "Challenges",
+                        items: [
+                            "Blade-to-blade clearance of only 0.15 in left very little room for any tool to pass through.",
+                            "CAD/CAM modification: removed half the blades in the model to open up clearance for 3+2 adaptive clearing toolpaths."
+                        ]
+                    },
+                    {
+                        label: "Toolpath Strategy",
+                        items: [
+                            "Setup 1: two separated 2D adaptive clearing passes at up to 0.15 in stepdown, plus facing, to cut machining time and tool stress.",
+                            "Setup 2: two adaptive passes and one facing operation with larger 1 in tools to remove bulk stock.",
+                            "Finishing pass: 3/16 in Kencut square end mill running two 3+2 clearing toolpaths to minimize cutter stress.",
+                            "Feedrate tuning: reduced lead-in/lead-out feed to 90 in/min on pocket passes to eliminate tool chatter."
+                        ]
                 tags: ["Haas Lathe", "Workholding", "Precision Machining"]
             },
 
@@ -772,6 +895,32 @@
             renderCategoryView(categoryKey);
         }
 
+        // Builds the labeled-section HTML for the modal body.
+        // Supports two data shapes on a project object:
+        //  1) sections: [ { label: "Machine", value: "..." }, { label: "Challenges", items: [...] } ]
+        //  2) highlights: [ "...", "..." ]  (rendered under one generic heading, as before)
+        function buildDetailsHTML(p) {
+            if (Array.isArray(p.sections) && p.sections.length > 0) {
+                return p.sections.map(sec => {
+                    const body = Array.isArray(sec.items)
+                        ? `<ul class="list-disc list-inside space-y-1 text-slate-300">${sec.items.map(i => `<li>${i}</li>`).join('')}</ul>`
+                        : `<p class="text-slate-300">${sec.value}</p>`;
+                    return `
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase text-slate-400 mb-1">${sec.label}</h4>
+                            ${body}
+                        </div>`;
+                }).join('');
+            }
+            // Fallback: plain highlights list under one heading
+            const items = (p.highlights || []).map(h => `<li>${h}</li>`).join('');
+            return `
+                <div>
+                    <h4 class="text-xs font-semibold uppercase text-slate-400 mb-1">Key Engineering Deliverables & Results</h4>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300">${items}</ul>
+                </div>`;
+        }
+
         function openModal(id) {
             const p = projectsData.find(item => item.id === id);
             if (!p) return;
@@ -784,7 +933,7 @@
             imgElem.src = p.image;
             imgElem.onerror = () => { imgElem.src = 'https://via.placeholder.com/800x450/0f172a/64748b?text=Image+Not+Found+in+images/+folder'; };
 
-            document.getElementById('modal-highlights').innerHTML = p.highlights.map(h => `<li>${h}</li>`).join('');
+            document.getElementById('modal-details').innerHTML = buildDetailsHTML(p);
             document.getElementById('modal-tags').innerHTML = p.tags.map(t => `<span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded border border-slate-700">${t}</span>`).join('');
 
             const modal = document.getElementById('project-modal');
