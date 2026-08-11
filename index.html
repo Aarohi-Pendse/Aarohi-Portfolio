@@ -83,7 +83,7 @@
                 <div>
                     <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-4">
                         <h2 id="active-category-title" class="text-xl font-bold text-blue-400">CAM & Manufacturing</h2>
-                        <span id="category-summary" class="text-xs text-slate-400">Test-cell architectures, GSE schematics, instrumentation & safety systems</span>
+                        <span id="category-summary" class="text-xs text-slate-400">Coursework, experimental laboratories & aerospace engineering fundamentals</span>
                     </div>
 
                     <!-- Project Table View -->
@@ -916,72 +916,221 @@
             {
                 id: "lab-1",
                 category: "labwork",
-                title: "Subsonic and Supersonic Wind Tunnel Testing Lab",
-                tool: "Instron UTM",
-                metric: "Data Acquisition",
+                title: "AAE 490 — Aero Propulsion Foundations",
+                tool: "Thermodynamics / Propulsion Analysis",
+                metric: "Equivalent to AAE 338 / 339",
                 image: "images/fatigue-test.png",
-                description: "Mechanical destructive testing lab analyzing fatigue limits and SEM fracture surface topographies.",
-                highlights: [
-                    "Plotted empirical stress vs cycle curves under cyclic fatigue loading.",
-                    "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
+                description: "Purdue AAE 490 Aero Propulsion Foundations, taken as the replacement/equivalent pathway for the former AAE 338/339 propulsion requirement. The course developed a foundation in thermofluid physics, propulsion-system performance, and the analysis of energy conversion processes used in aerospace propulsion.",
+                sections: [
+                    {
+                        label: "Course Objective",
+                        items: [
+                            "Develop a rigorous foundation in the thermodynamic and fluid-mechanical principles governing aerospace propulsion systems.",
+                            "Connect control-volume thermodynamics, compressible flow, and energy conversion to the performance of propulsion components and complete engine cycles.",
+                            "Build the analytical framework required to evaluate thrust, specific impulse, efficiency, pressure ratios, temperature ratios, and component performance."
+                        ]
+                    },
+                    {
+                        label: "Course Learnings",
+                        items: [
+                            "Analyzed ideal and non-ideal propulsion cycles using conservation of mass, momentum, and energy.",
+                            "Applied compressible-flow and thermodynamic relations to nozzles, diffusers, compressors, turbines, and combustion systems.",
+                            "Evaluated stagnation properties, pressure/temperature ratios, Mach-number effects, and flow losses in propulsion components.",
+                            "Developed an engineering understanding of how component-level performance influences overall engine thrust and efficiency."
+                        ]
+                    },
+                    {
+                        label: "Engineering Application",
+                        items: [
+                            "Applied propulsion-cycle analysis to liquid and air-breathing engine concepts.",
+                            "Developed the thermofluid foundation used for rocket-feed-system, combustion, nozzle, and engine-test-system analysis."
+                        ]
+                    }
                 ],
-                tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
+                tags: ["Purdue AAE 490", "Propulsion", "Thermodynamics", "Compressible Flow", "Engine Cycles", "Nozzles"]
             },
             {
                 id: "lab-2",
                 category: "labwork",
-                title: "7075-T6 Fatigue & Tensile Testing Lab",
-                tool: "Instron UTM",
-                metric: "Full S-N Curve Plotted",
+                title: "AAE 33401 — Aerodynamics Laboratory",
+                tool: "Wind Tunnel / Experimental Aerodynamics",
+                metric: "Experimental Flow & Force Measurements",
                 image: "images/fatigue-test.png",
-                description: "Mechanical destructive testing lab analyzing fatigue limits and SEM fracture surface topographies.",
-                highlights: [
-                    "Plotted empirical stress vs cycle curves under cyclic fatigue loading.",
-                    "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
+                description: "Experimental aerodynamics laboratory focused on connecting theoretical aerodynamic models with measured wind-tunnel data and developing practical experimental methods for characterizing aerodynamic performance.",
+                sections: [
+                    {
+                        label: "Course Objective",
+                        items: [
+                            "Develop experimental methods for measuring aerodynamic forces, pressures, and flow behavior.",
+                            "Connect aerodynamic theory and governing equations to physical wind-tunnel measurements.",
+                            "Develop proficiency in experimental uncertainty, instrumentation, data reduction, and interpretation."
+                        ]
+                    },
+                    {
+                        label: "Course Learnings",
+                        items: [
+                            "Measured and interpreted aerodynamic quantities including lift, drag, pressure, and velocity.",
+                            "Used wind-tunnel instrumentation and experimental data-acquisition methods to characterize aerodynamic behavior.",
+                            "Compared experimental results against theoretical and analytical predictions.",
+                            "Evaluated the influence of Reynolds number, Mach number, geometry, and flow conditions on aerodynamic performance.",
+                            "Applied uncertainty analysis and engineering judgment when interpreting experimental measurements."
+                        ]
+                    },
+                    {
+                        label: "Engineering Application",
+                        items: [
+                            "Developed practical wind-tunnel testing skills applicable to aircraft, airframe, propulsion-flow, and experimental fluid-dynamics testing.",
+                            "Strengthened the ability to design experiments, acquire sensor data, process measurements, and communicate engineering conclusions."
+                        ]
+                    }
                 ],
-                tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
+                tags: ["Purdue AAE 33401", "Aerodynamics", "Wind Tunnel", "DAQ", "Experimental Methods", "Uncertainty"]
             },
             {
                 id: "lab-3",
                 category: "labwork",
-                title: "Autonomous UAV Control Systems Testing Lab",
-                tool: "Instron UTM",
-                metric: "-.-",
+                title: "AAE 36401 — Control Systems Laboratory",
+                tool: "MATLAB / Control Systems / Data Acquisition",
+                metric: "Feedback Control & System Identification",
                 image: "images/fatigue-test.png",
-                description: "Mechanical destructive testing lab analyzing fatigue limits and SEM fracture surface topographies.",
-                highlights: [
-                    "Plotted empirical stress vs cycle curves under cyclic fatigue loading.",
-                    "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
+                description: "Laboratory application of control-system theory to physical and simulated systems, emphasizing feedback, dynamic response, system identification, controller design, and experimental validation.",
+                sections: [
+                    {
+                        label: "Course Objective",
+                        items: [
+                            "Translate mathematical control-system models into experimentally testable systems.",
+                            "Develop practical understanding of feedback, stability, transient response, and controller performance.",
+                            "Use computational and experimental tools to design, implement, and validate control strategies."
+                        ]
+                    },
+                    {
+                        label: "Course Learnings",
+                        items: [
+                            "Analyzed dynamic systems using transfer functions and state-space representations.",
+                            "Evaluated transient and steady-state response, stability, bandwidth, and system sensitivity.",
+                            "Designed and tuned feedback controllers to meet specified dynamic-performance requirements.",
+                            "Used MATLAB-based computational methods for simulation, analysis, and controller verification.",
+                            "Compared simulated system behavior against experimental measurements and identified sources of model mismatch."
+                        ]
+                    },
+                    {
+                        label: "Engineering Application",
+                        items: [
+                            "Built an engineering workflow from dynamic modeling through controller design, simulation, hardware implementation, and experimental validation.",
+                            "Developed controls intuition applicable to aerospace vehicles, actuators, propulsion hardware, and test-cell automation."
+                        ]
+                    }
                 ],
-                tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
+                tags: ["Purdue AAE 36401", "Control Systems", "MATLAB", "Feedback", "System Identification", "Dynamic Response"]
             },
             {
                 id: "lab-4",
                 category: "labwork",
-                title: "AAE 439 - Fundamentals Of Rocket Propulsion",
-                tool: "Instron UTM",
-                metric: "-.-",
+                title: "AAE 20401 — Aeromechanics II Laboratory",
+                tool: "Materials Testing / Experimental Mechanics",
+                metric: "Material & Structural Characterization",
                 image: "images/fatigue-test.png",
-                description: "Mechanical destructive testing lab analyzing fatigue limits and SEM fracture surface topographies.",
-                highlights: [
-                    "Plotted empirical stress vs cycle curves under cyclic fatigue loading.",
-                    "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
+                description: "Purdue Aeromechanics II Laboratory focused on experimentally characterizing material and structural behavior and connecting measured mechanical response to the analytical models used in aerospace engineering.",
+                sections: [
+                    {
+                        label: "Course Objective",
+                        items: [
+                            "Develop hands-on understanding of material response, structural mechanics, and experimental characterization.",
+                            "Learn to design and execute laboratory tests while maintaining controlled boundary conditions and measurement quality.",
+                            "Connect measured stress-strain and structural response to engineering models and design decisions."
+                        ]
+                    },
+                    {
+                        label: "Course Learnings",
+                        items: [
+                            "Characterized mechanical properties through controlled material testing and stress-strain measurements.",
+                            "Interpreted elastic and inelastic material response and related experimental behavior to constitutive models.",
+                            "Applied engineering data reduction, uncertainty considerations, and comparison between analytical predictions and experimental results.",
+                            "Developed practical experience with laboratory instrumentation, test procedures, and technical reporting."
+                        ]
+                    },
+                    {
+                        label: "Engineering Application",
+                        items: [
+                            "Strengthened the experimental mechanics foundation needed for aerospace structures, component qualification, and hardware testing.",
+                            "Developed an understanding of how material-level properties propagate into structural design and failure considerations."
+                        ]
+                    }
                 ],
-                tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
+                tags: ["Purdue AAE 20401", "Aeromechanics", "Materials Testing", "Stress-Strain", "Experimental Mechanics"]
             },
             {
                 id: "lab-5",
                 category: "labwork",
-                title: "AAE 340 - Orbital Dynamics",
-                tool: "Instron UTM",
-                metric: "-.-",
+                title: "AAE 35201 — Structural Analysis Laboratory",
+                tool: "Experimental Structures / Instrumentation",
+                metric: "Structural Load & Response Measurement",
                 image: "images/fatigue-test.png",
-                description: "Mechanical destructive testing lab analyzing fatigue limits and SEM fracture surface topographies.",
-                highlights: [
-                    "Plotted empirical stress vs cycle curves under cyclic fatigue loading.",
-                    "Utilized Scanning Electron Microscopy (SEM) to inspect beach mark propagation."
+                description: "Structural-analysis laboratory experience focused on experimentally measuring structural response and validating analytical mechanics models against physical hardware.",
+                sections: [
+                    {
+                        label: "Course Objective",
+                        items: [
+                            "Apply structural-analysis principles to physical aerospace hardware and laboratory test articles.",
+                            "Develop experimental methods for measuring deformation, strain, stress, and structural response under applied loading.",
+                            "Validate analytical structural models through controlled experimentation."
+                        ]
+                    },
+                    {
+                        label: "Course Learnings",
+                        items: [
+                            "Applied beam, axial, bending, and structural mechanics concepts to experimentally loaded components.",
+                            "Interpreted strain and deformation measurements and related them to applied loads and stresses.",
+                            "Compared experimental structural response with analytical predictions and investigated sources of discrepancy.",
+                            "Developed practical understanding of structural testing, instrumentation, uncertainty, and failure considerations."
+                        ]
+                    },
+                    {
+                        label: "Engineering Application",
+                        items: [
+                            "Established a direct connection between analytical structural mechanics, physical testing, and hardware qualification.",
+                            "Developed testing intuition relevant to aerospace structures, mounts, brackets, pressure hardware, and flight components."
+                        ]
+                    }
                 ],
-                tags: ["Instron UTM", "SEM Analysis", "Materials Testing"]
+                tags: ["Purdue AAE 35201", "Structural Analysis", "Experimental Structures", "Strain", "Stress", "Hardware Testing"]
+            },
+            {
+                id: "lab-6",
+                category: "labwork",
+                title: "AAE 421 / 440 — Flight, Attitude & Orbital Dynamics",
+                tool: "Dynamics / Orbital Mechanics / MATLAB",
+                metric: "6-DOF & Spacecraft Dynamics",
+                image: "images/fatigue-test.png",
+                description: "Advanced aerospace dynamics coursework covering the modeling of vehicle motion, orbital behavior, and spacecraft attitude dynamics, with emphasis on translating governing equations into computationally analyzable aerospace systems.",
+                sections: [
+                    {
+                        label: "Course Objective",
+                        items: [
+                            "Develop a rigorous understanding of aerospace vehicle translational and rotational dynamics.",
+                            "Model aircraft or spacecraft motion using appropriate reference frames, coordinate transformations, and equations of motion.",
+                            "Apply orbital and attitude-dynamics principles to analyze and predict vehicle state evolution."
+                        ]
+                    },
+                    {
+                        label: "Course Learnings",
+                        items: [
+                            "Formulated translational and rotational equations of motion for aerospace vehicles.",
+                            "Worked with reference frames, coordinate transformations, and attitude representations.",
+                            "Analyzed orbital motion, trajectory behavior, and the dynamics governing spacecraft motion.",
+                            "Applied rigid-body rotational dynamics, angular momentum, inertia properties, and attitude evolution.",
+                            "Used computational methods to simulate and interpret aerospace dynamic-system behavior."
+                        ]
+                    },
+                    {
+                        label: "Engineering Application",
+                        items: [
+                            "Developed the dynamics foundation required for aerospace guidance, navigation, control, spacecraft operations, and vehicle simulation.",
+                            "Connected orbital mechanics and attitude dynamics to practical spacecraft and aerospace-system modeling."
+                        ]
+                    }
+                ],
+                tags: ["Purdue AAE 421/440", "Flight Dynamics", "Orbital Mechanics", "Attitude Dynamics", "6-DOF", "MATLAB"]
             }
         ];
 
