@@ -653,56 +653,57 @@
                 category: "coding",
                 title: "Regeneratively Cooled Nozzle Heat Flux and Temperature Distributions",
                 tool: "Python",
-                metric: "4 Hours Saved / Test Run",
-                image: "images/python-daq.png",
-                description: "Automated ingestion script to clean, filter, and output standardized telemetry reports from raw CSV logs.",
+                metric: "Multi- Software Analysis Project",
+                image: "images/regennozz-code.png",
+                description: "Analyzing a regeneratively Cooling Engine with CFD, Python.",
                 highlights: [
-                    "Applied Savitzky-Golay filtering for automated sensor noise reduction.",
-                    "Generated automated PDF plots for pressure transducers and thermocouples."
+                    "Discretized combustion chamber cooling channels into 100 1D axial nodes along the contour (throat aspect ratios AR_{throat} = 2.5 - 3.5) to calculate localized coolant velocity, aspect ratio optimization (h, w), and pressure drop (Delta P). ",
+                    "Coupled gas-side convective heat flux using Bartz equation predictions with 1D wall conduction  and coolant-side heat transfer to iteratively solve for inner wall temperatures  and fluid bulk enthalpy balance.",
+                    ""
                 ],
-                tags: ["Python", "Pandas", "Matplotlib", "Automation"]
+                tags: ["Propulsion Systems", "Thermal-Fluid Dynamics", "MATLAB", "Python", "CoolProp", "NIST REFPROP"]
             },
             {
                 id: "code-2",
                 category: "coding",
                 title: "Pressurization of Liquid Rocket Engine",
                 tool: "Python",
-                metric: "4 Hours Saved / Test Run",
+                metric: "For Club",
                 image: "images/python-daq.png",
-                description: "Automated ingestion script to clean, filter, and output standardized telemetry reports from raw CSV logs.",
+                description: "Pressurization of A LRE",
                 highlights: [
-                    "Applied Savitzky-Golay filtering for automated sensor noise reduction.",
-                    "Generated automated PDF plots for pressure transducers and thermocouples."
+                    "Coming soon",
+                    "Coming Soon"
                 ],
-                tags: ["Python", "Pandas", "Matplotlib", "Automation"]
+                tags: ["Propulsion Systems", "Thermal-Fluid Dynamics", "Dynamic Systems & Controls"]
             },
             {
                 id: "code-3",
                 category: "coding",
                 title: "Transient Water Hammer Analysis in Valves",
                 tool: "Python",
-                metric: "4 Hours Saved / Test Run",
+                metric: "Learning",
                 image: "images/python-daq.png",
-                description: "Automated ingestion script to clean, filter, and output standardized telemetry reports from raw CSV logs.",
+                description: "Build a transient model for cryogenic water hammer.",
                 highlights: [
-                    "Applied Savitzky-Golay filtering for automated sensor noise reduction.",
-                    "Generated automated PDF plots for pressure transducers and thermocouples."
+                    "Formulated Method of Characteristics (MOC) 1D pipe flow networks to capture dynamic pressure surges, cavitation inception, and feed system priming transients.",
+                    "Modeled compressible fluid transients, Joukowsky pressure spikes (Delta P = rho*c*delta_v), and acoustic wave propagation in feed lines during rapid valve opening/closing sequences."
                 ],
-                tags: ["Python", "Pandas", "Matplotlib", "Automation"]
+                tags: ["Propulsion Systems", "Thermal-Fluid Dynamics", "Dynamic Systems & Controls"]
             },
             {
                 id: "code-4",
                 category: "coding",
                 title: "Turbopump Spinup and Valve Timing Simulator",
                 tool: "Python",
-                metric: "4 Hours Saved / Test Run",
-                image: "images/python-daq.png",
+                metric: "Learning",
+                image: "images/turb.png",
                 description: "Automated ingestion script to clean, filter, and output standardized telemetry reports from raw CSV logs.",
                 highlights: [
-                    "Applied Savitzky-Golay filtering for automated sensor noise reduction.",
-                    "Generated automated PDF plots for pressure transducers and thermocouples."
+                    "Derived dynamic torque-balance equations  modeling rotor inertia, transient mass flow accumulation, and head-rise development during engine ignition.",
+                    "Mapped transient operating lines on pump impeller performance maps to evaluate cavitation margins ($NPSH_A$ vs. $NPSH_R$) during rapid acceleration."
                 ],
-                tags: ["Python", "Pandas", "Matplotlib", "Automation"]
+                tags: ["Propulsion Systems", "Thermal-Fluid Dynamics", "Dynamic Systems & Controls"]
             },
 
             // --- P&IDs & SYSTEM SCHEMATICS ---
